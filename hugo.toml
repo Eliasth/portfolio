@@ -1,0 +1,12 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Eliasth Portfolio'
+theme = "Oct25"
+
+
+uglyURLs = false # This changes the URL structure. If set to true, URLs don't have a trailing slash and look like /section/name.html instead of /section/name/. Ensure this is set according to your preference.
+canonifyURLs = false # When true, all URLs are made absolute, using the baseURL. This is generally useful for production, but you may need to adjust it for local testing.
+relativeURLs = true # When set to true, Hugo generates relative URLs. This can be useful if you're viewing the site without a server. For local testing on WAMP, you might try setting this to true
+
+
+defaultContentLanguage = 'en'

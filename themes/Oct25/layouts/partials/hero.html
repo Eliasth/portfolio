@@ -1,0 +1,41 @@
+{{ $heroScratch := newScratch }}
+{{ with .Params.hero_image }}
+  {{ $heroScratch.Set "path" . }}
+  {{ with $.Resources.GetMatch . }}
+    {{ $heroScratch.Set "path" .RelPermalink }}
+  {{ end }}
+{{ end }}
+
+<div class="container-fluid hero-section py-5">
+  <div class="container">
+    <div class="hero-content text-center d-flex flex-column align-items-center">
+      {{ with $heroScratch.Get "path" }}
+        <div class="hero-avatar mb-4">
+          <img src="{{ . }}" alt="{{ default $.Title `Profile photo` }}" class="hero-avatar__img">
+        </div>
+      {{ end }}
+
+      <h1 class="hero-title mb-1">{{ .Title }}</h1>
+      <h4 class="hero-title mb-3">{{ .Params.subtitle }}</h4>
+
+      {{ with .Params.brief_bio }}
+        <p class="hero-bio mb-4">{{ . }}</p>
+      {{ end }}
+
+      <div class="hero-cta d-flex flex-column flex-sm-row gap-3 justify-content-center mb-4">
+        {{ with .Params.linkedin_url }}
+          <a class="btn btn-secondary hero-btn d-inline-flex align-items-center gap-2" href="{{ . | safeURL }}" target="_blank" rel="noopener">
+            <img src="/images/LinkedIn.png" alt="" aria-hidden="true" class="btn-icon">
+            LinkedIn
+          </a>
+        {{ end }}
+        {{ with .Params.contact_url }}
+          <a class="btn btn-outline-secondary hero-btn d-inline-flex align-items-center gap-2" href="{{ . | safeURL }}">
+            <img src="/images/Email.png" alt="" aria-hidden="true" class="btn-icon">
+            Email Me
+          </a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>

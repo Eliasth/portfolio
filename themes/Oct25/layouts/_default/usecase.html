@@ -1,0 +1,204 @@
+{{ define "main" }}
+<section class="usecase-hero py-5 bg-body-tertiary">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-12 col-lg-7">
+        {{ with index .Params "proj_Properties" }}
+          <ul class="list-inline text-secondary-emphasis mb-3 proj_prop" aria-label="Project characteristics">
+            {{ range . }}
+              <li class="list-inline-item">{{ . }}</li>
+            {{ end }}
+          </ul>
+        {{ end }}
+        <h1 class="mb-2">{{ .Title }}</h1>
+        {{ with .Params.subtitle }}
+          <p class="fs-4 text-body-secondary mb-4">{{ . }}</p>
+        {{ end }}
+        {{ with .Params.briefDescription }}
+          <p class="lead text-body-secondary mb-4">{{ . }}</p>
+        {{ end }}
+        <ul class="usecase-hero__meta list-unstyled mb-0" role="list" aria-label="Project details">
+          {{ with .Params.dev_duration }}
+            <li>
+              <img src="/images/icon_calendar.png" alt="" aria-hidden="true">
+              <span><span class="visually-hidden">Duration: </span>{{ . }}</span>
+            </li>
+          {{ end }}
+          {{ with .Params.category }}
+            <li>
+              <img src="/images/icon_target_project.png"  alt="" aria-hidden="true">
+              <span><span class="visually-hidden">Category: </span>{{ . }}</span>
+            </li>
+          {{ end }}
+          {{ with .Params.year }}
+            <li>
+              <img src="/images/icon_clock.png" alt="" aria-hidden="true">
+              <span><span class="visually-hidden">Year: </span>{{ . }}</span>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+      <div class="col-12 col-lg-5">
+        {{ with .Params.promoImage }}
+          {{ $promoAlt := default (printf "%s promotional image" $.Title) (index $.Params "promoImage-alt") }}
+          <figure class="m-0">
+            <img class="img-fluid rounded-4 w-100 h-auto" src="{{ . }}" alt="{{ $promoAlt }}">
+          </figure>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ $pageImages := .Params.images }}
+{{ $pageImageAlts := index .Params "images-alt" }}
+
+<section class="usecase-content py-5">
+  <div class="container-fluid">
+    <div class="container">
+     
+
+      <div class="usecase-card__body">
+        {{ with .Params.overview }}
+          <h3 class="mb-5">Overview</h3>
+        <div class="row">
+          <div class="col-md-6 px-4">
+              {{ with .projectOverview }}
+                <h5>Project Overview:</h5> 
+                <p>{{ . }}</p>
+              {{ end }}
+          </div>
+          <div class="col-md-6 px-4">
+                 {{ with .contextAndProblem  }}
+                <h5>Context &amp; Problem:</h5> 
+                <p>{{ . }}</p>
+              {{ end }}
+          </div>
+        </div>
+
+        
+          <section class="usecase-card__section mb-5">
+          
+          
+            
+           
+            {{ with $pageImages }}
+              <div class="usecase-card__gallery row g-3 mt-4" aria-label="Project imagery">
+                {{ range $imgIndex, $imgPath := first 3 . }}
+                  {{ $imgAlt := printf "%s image %d" $.Title (add $imgIndex 1) }}
+                  {{ with $pageImageAlts }}
+                    {{ if lt $imgIndex (len .) }}
+                      {{ $imgAlt = index . $imgIndex }}
+                    {{ end }}
+                  {{ end }}
+                  <div class="col-12 col-md-4">
+                    <figure class="usecase-card__figure text-center">
+                      <img class="img-fluid rounded" src="{{ $imgPath }}" alt="{{ $imgAlt }}">
+                      <figcaption class="small text-body-secondary mt-2">{{ $imgAlt }}</figcaption>
+                    </figure>
+                  </div>
+                {{ end }}
+              </div>
+            {{ end }}
+          </section>
+        {{ end }}
+
+        {{ with .Params.designProcess }}
+          <section class="usecase-card__section mb-5">
+            <h3 class="h5">Design Process</h3>
+            {{ with .research }}
+              <div class="usecase-card__subsection mb-3">
+                <h4 class="h6 text-uppercase text-secondary fw-semibold">Research</h4>
+                <p class="mb-0">{{ . }}</p>
+              </div>
+            {{ end }}
+            {{ with .ideationAndConcept }}
+              <div class="usecase-card__subsection mb-3">
+                <h4 class="h6 text-uppercase text-secondary fw-semibold">Ideation &amp; Concept</h4>
+                <p class="mb-0">{{ . }}</p>
+              </div>
+            {{ end }}
+            {{ with .design }}
+              <div class="usecase-card__subsection">
+                <h4 class="h6 text-uppercase text-secondary fw-semibold">Design</h4>
+                <p class="mb-0">{{ . }}</p>
+              </div>
+            {{ end }}
+            {{ with $pageImages }}
+              <div class="usecase-card__gallery row g-3 mt-4" aria-label="Project imagery">
+                {{ range $imgIndex, $imgPath := first 3 . }}
+                  {{ $imgAlt := printf "%s image %d" $.Title (add $imgIndex 1) }}
+                  {{ with $pageImageAlts }}
+                    {{ if lt $imgIndex (len .) }}
+                      {{ $imgAlt = index . $imgIndex }}
+                    {{ end }}
+                  {{ end }}
+                  <div class="col-12 col-md-4">
+                    <figure class="usecase-card__figure text-center">
+                      <img class="img-fluid rounded" src="{{ $imgPath }}" alt="{{ $imgAlt }}">
+                      <figcaption class="small text-body-secondary mt-2">{{ $imgAlt }}</figcaption>
+                    </figure>
+                  </div>
+                {{ end }}
+              </div>
+            {{ end }}
+          </section>
+        {{ end }}
+
+        {{ with .Params.executionDelivery }}
+          <section class="usecase-card__section mb-5">
+            <h3 class="h5">Execution &amp; Delivery</h3>
+            <div class="row g-3">
+              {{ with .implementation }}
+                <div class="col-12 col-md-4">
+                  <h4 class="h6 text-uppercase text-secondary fw-semibold">Implementation</h4>
+                  <p class="mb-0">{{ . }}</p>
+                </div>
+              {{ end }}
+              {{ with .testingAndValidation }}
+                <div class="col-12 col-md-4">
+                  <h4 class="h6 text-uppercase text-secondary fw-semibold">Testing &amp; Validation</h4>
+                  <p class="mb-0">{{ . }}</p>
+                </div>
+              {{ end }}
+              {{ with .finalOutcome }}
+                <div class="col-12 col-md-4">
+                  <h4 class="h6 text-uppercase text-secondary fw-semibold">Final Outcome</h4>
+                  <p class="mb-0">{{ . }}</p>
+                </div>
+              {{ end }}
+            </div>
+            {{ with $pageImages }}
+              <div class="usecase-card__gallery row g-3 mt-4" aria-label="Project imagery">
+                {{ range $imgIndex, $imgPath := first 3 . }}
+                  {{ $imgAlt := printf "%s image %d" $.Title (add $imgIndex 1) }}
+                  {{ with $pageImageAlts }}
+                    {{ if lt $imgIndex (len .) }}
+                      {{ $imgAlt = index . $imgIndex }}
+                    {{ end }}
+                  {{ end }}
+                  <div class="col-12 col-md-4">
+                    <figure class="usecase-card__figure text-center">
+                      <img class="img-fluid rounded" src="{{ $imgPath }}" alt="{{ $imgAlt }}">
+                      <figcaption class="small text-body-secondary mt-2">{{ $imgAlt }}</figcaption>
+                    </figure>
+                  </div>
+                {{ end }}
+              </div>
+            {{ end }}
+          </section>
+        {{ end }}
+
+        {{ with .Params.insights }}
+          {{ with .keyLearnings }}
+            <section class="usecase-card__section mb-5">
+              <h3 class="h5">Key Insights</h3>
+              <p class="mb-0">{{ . }}</p>
+            </section>
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
