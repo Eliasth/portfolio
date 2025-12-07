@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+# 👇 Important: allow this workflow to push to gh-pages
+permissions:
+  contents: write
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -30,4 +34,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
+          # optional but nice for a clean gh-pages history:
+          force_orphan: true
 
