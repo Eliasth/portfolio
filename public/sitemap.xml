@@ -2,48 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>http://example.org/about/</loc>
     <lastmod>2025-10-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/usecase/mob_app/</loc>
+    <loc>http://example.org/usecase/mob_app/</loc>
     <lastmod>2025-10-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/hero/</loc>
+    <loc>http://example.org/about/hero/</loc>
     <lastmod>2025-10-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/usecase/corp_website/</loc>
+    <loc>http://example.org/usecase/corp_website/</loc>
     <lastmod>2025-10-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/usecase/</loc>
+    <loc>http://example.org/usecase/</loc>
     <lastmod>2025-10-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://example.org/</loc>
     <lastmod>2025-08-08T16:16:31+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/blue/</loc>
+    <loc>http://example.org/tags/blue/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/green/</loc>
+    <loc>http://example.org/tags/green/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/post-3/</loc>
+    <loc>http://example.org/posts/post-3/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/red/</loc>
+    <loc>http://example.org/tags/red/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://example.org/tags/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/post-2/</loc>
+    <loc>http://example.org/posts/post-2/</loc>
     <lastmod>2023-02-15T10:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/post-1/</loc>
+    <loc>http://example.org/posts/post-1/</loc>
     <lastmod>2023-01-15T09:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>http://example.org/posts/</loc>
     <lastmod>2023-01-01T08:30:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://example.org/categories/</loc>
   </url>
 </urlset>
